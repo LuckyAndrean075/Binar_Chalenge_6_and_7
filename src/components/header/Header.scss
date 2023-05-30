@@ -1,0 +1,146 @@
+@use "../../scss/" as *;
+
+.logo {
+  font-size: 45px;
+  font-weight: 900;
+  color: $main-color;
+  flex: 1;
+
+  @include mobile {
+    font-size: 20px;
+    font-weight: 900;
+  }
+}
+
+.movie-search {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+
+  input {
+    width: 100%;
+    padding-right: 8rem;
+    background-color: transparent;
+    border: 3px solid $main-color;
+  }
+
+  .icon {
+    color: $txt-color;
+    margin-top: -0.05rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.login {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+
+  display: flex;
+  align-items: center;
+
+  @include mobile {
+    width: 110%;
+  }
+
+  input {
+    flex: 1;
+    width: 100%;
+    padding-right: 8rem;
+    background-color: transparent;
+    border: 3px solid $txt-color;
+    @include mobile {
+      padding-right: 2rem;
+    }
+  }
+
+  .icon {
+    color: $txt-color;
+    margin-top: -0.05rem;
+    margin-right: 0.7rem;
+    position: absolute;
+    right: 1rem;
+    @include mobile {
+      right: 2rem;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.listItem {
+  margin-right: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header {
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  transition: height 0.3s ease, background-color 0.3s ease;
+
+  &.shrink {
+    height: $header-shrink-height;
+    background-color: $body-bg;
+  }
+
+  &__wrap {
+    @include flex(center, space-between);
+    height: 100%;
+    padding: 0 2rem;
+
+    @include mobile {
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+
+  &_search {
+    flex: 2;
+  }
+
+  &__nav {
+    @include flex(center, unset);
+
+    & > * ~ * {
+      margin-left: 2rem;
+      flex: 1;
+    }
+
+    .outlineBtns {
+      color: $txt-color;
+      border: 3px solid $white;
+    }
+
+    @include mobile {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 5rem;
+      width: 100%;
+      background-color: $body-bg;
+      padding: 0 2rem;
+      box-shadow: $box-shadow;
+      gap: 1rem;
+
+      & > * ~ * {
+        margin-left: 0;
+      }
+    }
+  }
+}
