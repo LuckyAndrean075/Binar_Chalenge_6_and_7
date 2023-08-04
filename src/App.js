@@ -40,30 +40,9 @@ function App() {
               </RedirectIfProtected>
             }
           />
-          <Route
-            path="/:category"
-            element={
-              <Protected>
-                <Catalog />
-              </Protected>
-            }
-          />
-          <Route
-            path="/:category/search/:keyword"
-            element={
-              <Protected>
-                <Catalog />
-              </Protected>
-            }
-          />
-          <Route
-            path="/:category/:id"
-            element={
-              <Protected>
-                <Detail />
-              </Protected>
-            }
-          />
+          <Route path="/:category" element={<Catalog />} />
+          <Route path="/:category/search/:keyword" element={<Catalog />} />
+          <Route path="/:category/:id" element={<Detail />} />
         </Routes>
         <Footer />
       </BrowserRouter>
